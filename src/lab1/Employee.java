@@ -11,27 +11,31 @@ import java.util.Date;
  * @version     1.01
  */
 public class Employee {
-    String firstName;
-    String lastName;
-    public String ssn;
-    public Date birthDate;
-    boolean metWithHr;
-    boolean metDeptStaff;
-    boolean reviewedDeptPolicies;
-    boolean movedIn;
-    String cubeId;
+    private String firstName;
+    private String lastName;
+    private String ssn;
+    private Date birthDate;
+    private boolean metWithHr;
+    private boolean metDeptStaff;
+    private boolean reviewedDeptPolicies;
+    private boolean movedIn;
+    private String cubeId;
 
-    public Employee() {
-
-    }
+    public  Employee(String firstName, String lastName, String ssn) {
+        meetWithHrForBenefitAndSalryInfo();
+        meetDepartmentStaff();
+        reviewDeptPolicies();
+        cubeId = firstName + lastName;
+        moveIntoCubicle(cubeId);
+      }
 
     // Assume this must be performed first
-    public void meetWithHrForBenefitAndSalryInfo() {
+    private void meetWithHrForBenefitAndSalryInfo() {
         metWithHr = true;
     }
 
     // Assume this is must be performed second
-    public void meetDepartmentStaff() {
+    private void meetDepartmentStaff() {
         if(metWithHr) {
             metDeptStaff = true;
         } else {
@@ -41,7 +45,7 @@ public class Employee {
     }
 
     // Assume this must be performed third
-    public void reviewDeptPolicies() {
+    private void reviewDeptPolicies() {
         if(metWithHr && metDeptStaff) {
             reviewedDeptPolicies = true;
         } else {
@@ -52,7 +56,7 @@ public class Employee {
     }
 
     // Assume this must be performed 4th
-    public void moveIntoCubicle(String cubeId) {
+    private void moveIntoCubicle(String cubeId) {
         if(metWithHr && metDeptStaff && reviewedDeptPolicies) {
             this.cubeId = cubeId;
             this.movedIn = true;
@@ -73,4 +77,66 @@ public class Employee {
             return "Orientation in progress...";
         }
     }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        if(this.firstName == null){
+        throw new IllegalArgumentException("First Name must be something.");
+        
+        }
+        this.firstName = firstName;
+        
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+         if(this.lastName == null){
+        throw new IllegalArgumentException("Last Name must be something.");
+        
+        }
+        this.lastName = lastName;
+    }
+
+    public String getSsn() {
+        return ssn;
+    }
+
+    public void setSsn(String ssn) {
+         if(this.firstName == null){
+        throw new IllegalArgumentException("Please enter a valid SSN.");
+        
+        }
+        this.ssn = ssn;
+    }
+
+    public Date getBirthDate() {
+        return birthDate;
+    }
+
+    public void setBirthDate(Date birthDate) {
+         if(this.firstName == null){
+        throw new IllegalArgumentException("Enter a valid birth date.");
+        
+        }
+        this.birthDate = birthDate;
+    }
+
+    public String getCubeId() {
+        return cubeId;
+    }
+
+    public void setCubeId(String cubeId) {
+         if(this.firstName == null){
+        throw new IllegalArgumentException("Enter a valid cube ID");
+        
+        }
+        this.cubeId = cubeId;
+    }
+    
 }

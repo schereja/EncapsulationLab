@@ -10,14 +10,7 @@ package lab1;
  */
 public class Startup {
     public static void main(String[] args) {
-        Employee employee = new Employee();
-        employee.firstName = "Peter";
-        employee.lastName = "Piper";
-        employee.ssn = "333-1234";
-        
-        employee.meetDepartmentStaff();
-        employee.meetWithHrForBenefitAndSalryInfo();
-        employee.reviewDeptPolicies();
+        Employee employee = new Employee("Peter", "Piper", "333-1234");
 
         System.out.println("The employee's status is: " + employee.getStatus());
     }
