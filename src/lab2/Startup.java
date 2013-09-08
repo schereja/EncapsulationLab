@@ -9,5 +9,8 @@ package lab2;
  * @author schereja
  */
 public class Startup {
-    
+    public static void main(String[] args){
+        Game game1 = new Game();
+        
+    }
 }
