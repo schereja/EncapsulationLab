@@ -388,8 +388,10 @@ public class MainGUI extends javax.swing.JFrame implements ActionListener {
                     "Part Number not found. Please try again.",
                     "Search Failure", JOptionPane.WARNING_MESSAGE);
         } else {
-            partNums[foundIndex] = txtCurProdNo.getText();
-            partDescs[foundIndex] = txtCurDesc.getText();
+            setPartNums(partNums, foundIndex, txtCurProdNo.getText());
+            //partNums[foundIndex] = txtCurProdNo.getText();
+             setPartDescs(partDescs, foundIndex, txtCurDesc.getText());
+            //partDescs[foundIndex] = txtCurDesc.getText();
             partPrices[foundIndex] = Double.parseDouble(txtCurPrice.getText());
             displayList();
             JOptionPane.showMessageDialog(this,
