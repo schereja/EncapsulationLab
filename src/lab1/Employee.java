@@ -83,7 +83,7 @@ public class Employee {
     }
 
     public void setFirstName(String firstName) {
-        if(this.firstName == null){
+        if(firstName == null || firstName.length() == 0){
         throw new IllegalArgumentException("First Name must be something.");
         
         }
@@ -96,7 +96,7 @@ public class Employee {
     }
 
     public void setLastName(String lastName) {
-         if(this.lastName == null){
+         if(lastName == null || lastName.length() == 0){
         throw new IllegalArgumentException("Last Name must be something.");
         
         }
@@ -108,7 +108,7 @@ public class Employee {
     }
 
     public void setSsn(String ssn) {
-         if(this.firstName == null){
+         if(ssn == null || ssn.length() == 0){
         throw new IllegalArgumentException("Please enter a valid SSN.");
         
         }
@@ -120,7 +120,7 @@ public class Employee {
     }
 
     public void setBirthDate(Date birthDate) {
-         if(this.firstName == null){
+         if(birthDate == null){
         throw new IllegalArgumentException("Enter a valid birth date.");
         
         }
@@ -132,7 +132,7 @@ public class Employee {
     }
 
     public void setCubeId(String cubeId) {
-         if(this.firstName == null){
+         if(cubeId == null || cubeId.length() == 0){
         throw new IllegalArgumentException("Enter a valid cube ID");
         
         }
