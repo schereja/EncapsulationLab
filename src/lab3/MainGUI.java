@@ -23,15 +23,71 @@ public class MainGUI extends javax.swing.JFrame implements ActionListener {
     private final int MAX_RECS = 10;
     private final int NOT_FOUND = -1;
 
-    String partNo;
-    int foundIndex = NOT_FOUND;
+    private String partNo;
+    private int foundIndex = NOT_FOUND;
     private String partDesc;
-    double partPrice;
+    private double partPrice;
 
-    String[] partNums = new String[10];
-    String[] partDescs = new String[10];
-    double[] partPrices = new double[10];
-    int emptyRow;
+    private String[] partNums = new String[10];
+    private String[] partDescs = new String[10];
+    private double[] partPrices = new double[10];
+    private int emptyRow;
+
+    public String getPartNo() {
+        return partNo;
+    }
+
+    public void setPartNo(String partNo) {
+        this.partNo = partNo;
+    }
+
+    public String getPartDesc() {
+        return partDesc;
+    }
+
+    public void setPartDesc(String partDesc) {
+        this.partDesc = partDesc;
+    }
+
+    public double getPartPrice() {
+        return partPrice;
+    }
+
+    public void setPartPrice(double partPrice) {
+        this.partPrice = partPrice;
+    }
+
+    public String[] getPartNums() {
+        return partNums;
+    }
+
+    public void setPartNums(String[] partNums, int location, String partNo) {
+        this.partNums[location] = partNo;
+    }
+
+    public String[] getPartDescs() {
+        return partDescs;
+    }
+
+    public void setPartDescs(String[] partDescs, int location, String partDesc) {
+        this.partDescs[location] = partDesc;
+    }
+
+    public double[] getPartPrices() {
+        return partPrices;
+    }
+
+    public void setPartPrices(double[] partPrices, int location, double partPrice) {
+        this.partPrices[location] = partPrice;
+    }
+
+    public int getEmptyRow() {
+        return emptyRow;
+    }
+
+    public void setEmptyRow(int emptyRow) {
+        this.emptyRow = emptyRow;
+    }
 
     /** Creates new form MainGUI */
     public MainGUI() {
@@ -258,11 +314,10 @@ public class MainGUI extends javax.swing.JFrame implements ActionListener {
 
     private void btnEnterRecordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnterRecordActionPerformed
         foundIndex = NOT_FOUND;
-
-        partNo = this.txtNewProdNo.getText();
-        partDesc = this.txtNewProdDesc.getText();
+        setPartNo(this.txtNewProdNo.getText());
+        setPartDesc(this.txtNewProdDesc.getText());
         try {
-            partPrice = Double.parseDouble(this.txtNewProdPrice.getText());
+            setPartPrice(Double.parseDouble(this.txtNewProdPrice.getText()));
         } catch(Exception e) {
             JOptionPane.showMessageDialog(this,
                     "Sorry, the price entry must be a whole or floating point number only.\n",
@@ -284,9 +339,12 @@ public class MainGUI extends javax.swing.JFrame implements ActionListener {
             this.txtNewProdNo.requestFocus();
 
         } else {
-            partNums[emptyRow] = partNo;
-            partDescs[emptyRow] = partDesc;
-            partPrices[emptyRow] = partPrice;
+           setPartNums(partNums, emptyRow, partNo);
+            //partNums[emptyRow] = partNo;
+           setPartDescs(partDescs, emptyRow, partDesc);
+            //partDescs[emptyRow] = partDesc;
+           setPartPrices(partPrices, emptyRow, partPrice);
+            //partPrices[emptyRow] = partPrice;
             this.emptyRow += 1;
         }
 
