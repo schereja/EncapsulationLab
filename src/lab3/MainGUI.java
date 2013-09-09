@@ -65,7 +65,7 @@ public class MainGUI extends javax.swing.JFrame implements ActionListener {
         this.partNums[location] = partNo;
     }
 
-    public String[] getPartDescs() {
+    public String[] getPartDescs(int i) {
         return partDescs;
     }
 
@@ -389,10 +389,12 @@ public class MainGUI extends javax.swing.JFrame implements ActionListener {
                     "Search Failure", JOptionPane.WARNING_MESSAGE);
         } else {
             setPartNums(partNums, foundIndex, txtCurProdNo.getText());
-            //partNums[foundIndex] = txtCurProdNo.getText();
+            /*partNums[foundIndex] = txtCurProdNo.getText();
+             * ----Originally tried without using the txtCur and just the prodNo, didn't work correct*/
              setPartDescs(partDescs, foundIndex, txtCurDesc.getText());
             //partDescs[foundIndex] = txtCurDesc.getText();
-            partPrices[foundIndex] = Double.parseDouble(txtCurPrice.getText());
+             setPartPrices(partPrices, foundIndex, Double.parseDouble(txtNewProdPrice.getText()));
+            //partPrices[foundIndex] = Double.parseDouble(txtCurPrice.getText());
             displayList();
             JOptionPane.showMessageDialog(this,
                 "Part updated successfully!",
