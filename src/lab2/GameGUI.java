@@ -10,6 +10,8 @@ package lab2;
  */
 public class GameGUI {
     private int move = 0;
+    private int attack = 0;
+    private int inventory = 0;
     
     public void move(int move){
         if(move == 0){
